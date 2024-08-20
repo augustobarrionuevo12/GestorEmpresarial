@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Gastos e Inventario</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Gestor Empresarial</h1> <!-- Título de la aplicación -->
+    </header>
+
+    <!-- ESTA VERSION DE CODIGO ES GENERADA UNICAMENTE CON EL OBJETIVO DE COMENTAR EN LAS LINEAS DE CODIGO BREVES EXPLICACIONES DE CADA FUNCION PARA ENTENDER EL PROPÓSITO DE CADA LINEA DE CODIGO A MODO DE ESTUDIO/REPASO/ENTENDIMIENTO Y APRENDIZAJE - Augusto Barrionuevo -->
+
+    <main>
+        <!-- Menú principal con botones para cada sección -->
+        <div id="main-menu" class="icon-grid">
+            <div class="icon-button" id="gastos-btn">
+                <!-- Botón para acceder a la sección de gastos -->
+                <img src="assets/gastos.png" alt="Gastos">
+                <span>Gastos</span>
+            </div>
+            <div class="icon-button" id="inventario-btn">
+                <!-- Botón para acceder a la sección de inventario -->
+                <img src="assets/inventario.avif" alt="Inventario">
+                <span>Inventario</span>
+            </div>
+            <div class="icon-button" id="explorar-btn">
+                <!-- Botón para acceder a la sección de exploración -->
+                <img src="assets/explorar.png" alt="Explorar">
+                <span>Explorar</span>
+            </div>
+            <div class="icon-button" id="proveedores-btn">
+                <!-- Botón para acceder a la sección de proveedores -->
+                <img src="assets/proveedores.jpeg" alt="Proveedores">
+                <span>Proveedores</span>
+            </div>
+        </div>
+
+        <!-- Sección para gestionar los gastos -->
+        <div id="gastos-section" class="hidden">
+            <h2>Gastos</h2>
+            <form id="add-expense-form">
+                <!-- Formulario para agregar un nuevo gasto -->
+                <label for="expense-category">Categoría:</label>
+                <select id="expense-category"></select> <!-- Selector de categoría -->
+
+                <label for="expense-location">Sede:</label>
+                <select id="expense-location"></select> <!-- Selector de sede -->
+
+                <label for="expense-type">Tipo de Gasto:</label>
+                <input type="text" id="expense-type" required> <!-- Campo para el tipo de gasto -->
+
+                <label for="expense-amount">Monto:</label>
+                <input type="number" id="expense-amount" required> <!-- Campo para el monto del gasto -->
+
+                <label for="expense-details">Detalles:</label>
+                <textarea id="expense-details"></textarea> <!-- Campo para detalles adicionales -->
+
+                <button type="submit">Agregar Gasto</button> <!-- Botón para enviar el formulario -->
+            </form>
+
+            <!-- Tabla para mostrar los gastos agregados -->
+            <table id="expenses-table">
+                <thead>
+                    <tr>
+                        <th>Categoría</th>
+                        <th>Sede</th>
+                        <th>Tipo de Gasto</th>
+                        <th>Monto</th>
+                        <th>Detalles</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se insertarán dinámicamente los gastos -->
+                </tbody>
+            </table>
+
+            <button id="volver-gastos">Volver</button> <!-- Botón para volver al menú principal -->
+        </div>
+
+        <!-- Sección para gestionar el inventario -->
+        <div id="inventario-section" class="hidden">
+            <h2>Inventario</h2>
+            <form id="add-inventory-form">
+                <!-- Formulario para agregar un nuevo ítem al inventario -->
+                <label for="inventory-name">Nombre del Item:</label>
+                <input type="text" id="inventory-name" required> <!-- Campo para el nombre del ítem -->
+
+                <label for="inventory-category">Categoría:</label>
+                <select id="inventory-category"></select> <!-- Selector de categoría -->
+
+                <label for="inventory-location">Sede:</label>
+                <select id="inventory-location"></select> <!-- Selector de sede -->
+
+                <label for="inventory-quantity">Cantidad:</label>
+                <input type="number" id="inventory-quantity" required> <!-- Campo para la cantidad del ítem -->
+
+                <button type="submit">Agregar al Inventario</button> <!-- Botón para enviar el formulario -->
+            </form>
+
+            <!-- Tabla para mostrar el inventario -->
+            <table id="inventory-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Sede</th>
+                        <th>Cantidad</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se insertarán dinámicamente los ítems del inventario -->
+                </tbody>
+            </table>
+
+            <button id="volver-inventario">Volver</button> <!-- Botón para volver al menú principal -->
+        </div>
+
+        <!-- Sección para explorar gastos e inventario -->
+        <div id="explorar-section" class="hidden">
+            <h2>Explorar</h2>
+            <div class="filtros">
+                <!-- Filtros para buscar entre gastos e inventario -->
+                <label for="explorar-tipo">Tipo:</label>
+                <select id="explorar-tipo">
+                    <option value="gastos">Gastos</option>
+                    <option value="inventario">Inventario</option>
+                </select>
+
+                <label for="explorar-categoria">Categoría:</label>
+                <select id="explorar-categoria">
+                    <option value="todos">Todos</option>
+                </select>
+
+                <label for="explorar-sede">Sede:</label>
+                <select id="explorar-sede">
+                    <option value="todas">Todas</option>
+                </select>
+            </div>
+
+            <!-- Tabla para mostrar los datos filtrados -->
+            <table id="explorar-table">
+                <thead>
+                    <tr>
+                        <th>Nombre/Tipo</th>
+                        <th>Categoría</th>
+                        <th>Sede</th>
+                        <th>Cantidad/Monto</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se insertarán dinámicamente los datos filtrados -->
+                </tbody>
+            </table>
+
+            <button id="volver-explorar">Volver</button> <!-- Botón para volver al menú principal -->
+        </div>
+
+        <!-- Sección para gestionar los proveedores -->
+        <div id="proveedores-section" class="hidden">
+            <h2>Proveedores</h2>
+            <form id="add-provider-form">
+                <!-- Formulario para agregar un nuevo proveedor -->
+                <label for="provider-name">Nombre del Proveedor:</label>
+                <input type="text" id="provider-name" required> <!-- Campo para el nombre del proveedor -->
+
+                <label for="provider-contact">Número de Contacto:</label>
+                <input type="text" id="provider-contact" required> <!-- Campo para el contacto del proveedor -->
+
+                <label for="provider-location">Ubicación:</label>
+                <input type="text" id="provider-location" required> <!-- Campo para la ubicación del proveedor -->
+
+                <button type="submit">Agregar Proveedor</button> <!-- Botón para enviar el formulario -->
+            </form>
+
+            <!-- Tabla para mostrar los proveedores -->
+            <table id="providers-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Contacto</th>
+                        <th>Ubicación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se insertarán dinámicamente los proveedores -->
+                </tbody>
+            </table>
+
+            <button id="volver-proveedores">Volver</button> <!-- Botón para volver al menú principal -->
+        </div>
+    </main>
+
+    <footer>
+        <p>Santa Elena - Cotreco, todos los derechos reservados</p> <!-- Información del pie de página -->
+        <p>Gestor empresarial hecho por Augusto Barrionuevo</p> <!-- Autor del gestor empresarial -->
+    </footer>
+
+    <!-- Scripts que se cargan al final para manejar la lógica de la aplicación -->
+    <script src="data/categories.js"></script> <!-- Archivo de datos para las categorías -->
+    <script src="data/inventory.js"></script> <!-- Archivo de datos para el inventario -->
+    <script src="data/expenses.js"></script> <!-- Archivo de datos para los gastos -->
+    <script src="data/providers.js"></script> <!-- Archivo de datos para los proveedores -->
+    <script src="app.js"></script> <!-- Archivo principal de la lógica de la aplicación -->
+</body>
+
+
+</html>

@@ -1,0 +1,207 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    padding: 2rem;
+    min-height: calc(100vh - 160px); /* Ajustar el tamaño del main para tener en cuenta el header y el footer */
+}
+
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    justify-items: center;
+    margin-top: 2rem;
+}
+
+.icon-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.icon-button img {
+    width: 50%;
+    height: 50%;
+    margin-bottom: 0.5rem;
+}
+
+.icon-button span {
+    font-size: 14px;
+    color: #333;
+}
+
+.icon-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.hidden {
+    display: none;
+}
+
+.filtros {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.subtituloIndex{
+    display: block;
+    text-align: center;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    padding: 2rem;
+}
+
+.menu-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    margin: 0 1rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.hidden {
+    display: none;
+}
+
+input, select {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+}
+
+#volver-gastos, #volver-inventario {
+    margin-top: 2rem;
+    background-color: #007bff;
+}
+
+#volver-gastos:hover, #volver-inventario:hover {
+    background-color: #0056b3;
+}
+
+/* Media queries para hacer la página responsive */
+@media (max-width: 768px) {
+    /* Ajustes para tabletas y móviles */
+
+    header {
+        font-size: 1.5rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .icon-button {
+        max-width: 150px;
+        height: 150px;
+    }
+
+    .icon-button img {
+        width: 60%;
+        height: 60%;
+    }
+
+    .filtros {
+        flex-direction: column; /* Los filtros se apilan verticalmente en móviles */
+        align-items: center;
+    }
+
+    button {
+        width: 100%; /* Los botones ocupan todo el ancho en móviles */
+    }
+
+    table, th, td {
+        font-size: 0.9rem; /* Reduce el tamaño de las fuentes en tablas */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes adicionales para pantallas muy pequeñas */
+
+    header {
+        font-size: 1.2rem;
+    }
+
+    .icon-button {
+        max-width: 120px;
+        height: 120px;
+    }
+
+    .icon-button img {
+        width: 70%;
+        height: 70%;
+    }
+
+    table, th, td {
+        font-size: 0.8rem; /* Reduce aún más el tamaño de las fuentes en tablas */
+    }
+}
